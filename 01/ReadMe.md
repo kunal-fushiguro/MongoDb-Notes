@@ -25,3 +25,63 @@ Before Starting please make sure that you have installed `mongodb` & `mongodb sh
 ### What is `documents` in mongodb ?
 
 - Documents are similar to rows in a relational database, but instead of being organized into tables, they are grouped into collections.
+
+## Command's
+
+First Open terminal and run command `mongosh`
+
+### Database related command's
+
+- to check present database or show databses
+
+  ```
+  show dbs
+  ```
+
+  or
+
+  ```
+  show databses
+  ```
+
+- to create database
+
+  ```
+    use databasename
+  ```
+
+  you will not see database in cmd line until we create a atleast one collection.</br>
+  and `use` is also used to switch between and select a database. Example :
+
+  ```
+  use newdatabasename
+  use databasename
+  use newdatabasename
+  ```
+
+- to delete database
+
+  ```
+    use databasename
+  ```
+
+  and then
+
+  ```
+    db.dropDatabase()
+  ```
+
+### Collections related command's
+
+- to create collections
+
+  - first select database
+
+    ```
+    use databasename
+    ```
+
+  - and then create database using `db.createCollection('<collection-name>’);`
+    ```
+    db.createCollection("collectionname")
+    ```
