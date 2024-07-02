@@ -47,3 +47,45 @@ It is designed for flexibility, scalability, and performance in handling unstruc
 - Open Source and Community
   - MongoDB is open-source with a vibrant community.
   - Regular updates,improvements,and support.
+
+### JSON Vs BSON
+
+- In MongoDB, we write in JSON format only but behind the scene data is stored in BSON (Binary JSON) format, a binary representation of JSON.
+- By utilizing BSON, MongoDB can achieve higher read and write speeds,
+  reduced storage requirements, and improved data manipulation capabilities,
+  making it well-suited for handling large and complex datasets while
+  maintaining performance efficiency
+
+`JSON` format : </br>
+
+        {
+            "name": "Thapa",
+            "age": 29,
+            "isStudent": false,
+            "scores": [92, 108],
+            "address": {
+                "city": "Pokhara"
+            }
+        }
+
+`BSON` format : </br>
+
+    \x1e\x00\x00\x00
+    \x02
+    name\x00
+    \x04\x00\x00\x00Thapa\x00
+    \x10
+    age\x00
+    \x1e\x00\x00\x00\x00\x00\x00\x00
+    \x08
+    isStudent\x00
+    \x00
+    \x04
+    scores\x00
+    \x05\x00\x00\x00\x03\x00\x00\x00
+    \x10
+    \x00\x00\x00\x00\x00\x00\x00\x00
+    \x10
+    \x00\x00\x00\x00\x00\x00\x00\x00
+    \x10
+    \x00\x00\x00\x00\x00\x00\x00\x00
