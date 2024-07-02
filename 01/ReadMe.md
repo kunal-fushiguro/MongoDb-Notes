@@ -165,23 +165,25 @@ First Open terminal and run command `mongosh`
     ```
 
 - Unordered insert
+
   - When you perform unordered inserts, MongoDB attempts to insert all documents independently. If an error occurs with one document, MongoDB continues to insert the remaining documents. Example :
-  ```
-  db.collectionname.insertMany([
-      {
-          _id:1
-          "key1":"value1"
-      },
-      {
-          _id:1               // here the error will occurs it will upload
-          "key2":"value2"     // all the data except the error one
-      },
-      {
-          "key3":"value3",
-          "key4":{
-              "key1":"value1"
-              "key2":"value2"
-          }
-      },
-  ],{ ordered:false })
-  ```
+
+    ```
+    db.collectionname.insertMany([
+        {
+            _id:1
+            "key1":"value1"
+        },
+        {
+            _id:1               // here the error will occurs it will upload
+            "key2":"value2"     // all the data except the error one
+        },
+        {
+            "key3":"value3",
+            "key4":{
+                "key1":"value1"
+                "key2":"value2"
+            }
+        },
+    ],{ ordered:false })
+    ```
