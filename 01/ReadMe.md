@@ -85,3 +85,103 @@ First Open terminal and run command `mongosh`
     ```
     db.createCollection("collectionname")
     ```
+
+- to show collections
+
+  ```
+  show collections
+  ```
+
+- to delete collection
+  ```
+  db.collectionname.drop()
+  ```
+
+### Documents related command's
+
+- Inserting Documents in collection
+
+  - One document insert
+
+    ```
+    db.collectionname.insertOne({
+        "key":"value",
+        "key1":"value2",
+        "key3":{
+            "key1":"value1"
+            "key2":"value2"
+        },
+    })
+    ```
+
+  - Multiple document's insert
+
+    ```
+    db.collectionname.insertMany([
+        {
+            "key1":"value1"
+        },
+        {
+            "key2":"value2"
+        },
+        {
+            "key3":"value3",
+            "key4":{
+                "key1":"value1"
+                "key2":"value2"
+            }
+        },
+    ])
+    ```
+
+- to show document's
+
+  ```
+  db.collectionname.find()
+  ```
+
+- Ordered insert
+
+  - When you perform ordered inserts, MongoDB inserts the documents in the order you provide them. If an error occurs during the insertion of a document, MongoDB stops the process and does not insert any subsequent documents. Example :
+
+    ```
+     db.collectionname.insertMany([
+        {
+            _id:1
+            "key1":"value1"
+        },
+        {
+            _id:1               // here the error will occurs and it will only upload
+            "key2":"value2"     // first One and stop the process
+        },
+        {
+            "key3":"value3",
+            "key4":{
+                "key1":"value1"
+                "key2":"value2"
+            }
+        },
+    ])
+    ```
+
+- Unordered insert
+  - When you perform unordered inserts, MongoDB attempts to insert all documents independently. If an error occurs with one document, MongoDB continues to insert the remaining documents. Example :
+  ```
+  db.collectionname.insertMany([
+      {
+          _id:1
+          "key1":"value1"
+      },
+      {
+          _id:1               // here the error will occurs it will upload
+          "key2":"value2"     // all the data except the error one
+      },
+      {
+          "key3":"value3",
+          "key4":{
+              "key1":"value1"
+              "key2":"value2"
+          }
+      },
+  ],{ ordered:false })
+  ```
