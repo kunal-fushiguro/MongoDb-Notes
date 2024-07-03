@@ -220,3 +220,55 @@ First Open terminal and run command `mongosh`
   ```
     mongoexport -d shop -c products -o jsonTest.json
   ```
+
+## Comparison Operators
+
+Basic syntax of using operator's `db.collection_name.find({"key":{$operator:"value"}}) `
+
+- Equal to operator `$eq`
+
+  ```
+    db.collection_name.find({"key":{$eq:"value"}})
+  ```
+
+- Not equal to operator `$ne`
+
+  ```
+    db.collection_name.find({"key":{$ne:"value"}})
+  ```
+
+- Greater than operator `$gt`
+
+  ```
+    db.collection_name.find({"key":{$gt:"value"}})
+  ```
+
+- Greater than equal to operator `$gte`
+
+  ```
+    db.collection_name.find({"key":{$gte:"value"}})
+  ```
+
+- Less than operator `$lt`
+
+  ```
+    db.collection_name.find({"key":{$lt:"value"}})
+  ```
+
+- Less than equal to operator `$lte`
+
+  ```
+    db.collection_name.find({"key":{$lte:"value"}})
+  ```
+
+- To filter multiple equal to value's we use `$in` operator
+
+  ```
+    db.collection_name.find({"key":{$in:["value1","value2","value3"]}})
+  ```
+
+- To filter multiple not equal to value's we use `$nin` operator
+
+  ```
+    db.collection_name.find({"key":{$nin:["value1","value2","value3"]}})
+  ```
