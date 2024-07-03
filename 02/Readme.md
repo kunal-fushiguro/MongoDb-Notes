@@ -92,7 +92,7 @@ db.collection_name.find({$nor:[{"key":{$eq:"value"}},{"key":"value"}]})
 
 ### $not operator
 
-return a data(document) that is not match the expression(conditon).
+return a data(document) that not match the given expression(conditon).
 
 ```
 db.collection_name.find({"key":{$not:{$eq:"value"}}})
