@@ -216,6 +216,7 @@ First Open terminal and run command `mongosh`
 ### Exporting JSON in MongoDB
 
 - To export document into JSON file `mongoexport -d Database_name -c collection_name -o file_path.json`
+
   ```
     mongoexport -d shop -c products -o jsonTest.json
   ```
