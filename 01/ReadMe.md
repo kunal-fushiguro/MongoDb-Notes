@@ -187,3 +187,35 @@ First Open terminal and run command `mongosh`
         },
     ],{ ordered:false })
     ```
+
+- To find document
+
+  - To find multiple document with exact key value
+    ```
+        db.collectionname.find({"key1":"value1"})
+    ```
+  - To find first document with excat key value
+    ```
+        db.collectionname.findOne({"key1":"value1"})
+    ```
+
+### Importing JSON in MongoDB
+
+- To import JSON file data into document use `mongoimport jsonfile_Path.json –d database_name –c collection_name`
+
+  ```
+    mongoimport JSON_Products.json -d shop -c products
+  ```
+
+- To import JSON_ARRAY file data into document use `mongoimport jsonfile_Path.json –d database_name –c collection_name --jsonArray`
+
+  ```
+    mongoimport JSON_Products.json -d shop -c products --jsonArray
+  ```
+
+### Exporting JSON in MongoDB
+
+- To export document into JSON file `mongoexport -d Database_name -c collection_name -o file_path.json`
+  ```
+    mongoexport -d shop -c products -o jsonTest.json
+  ```
