@@ -1,18 +1,18 @@
 # Cursor
 
-A pointer or iterator that allows an application to retrieve and manipulate data from a collection of documents in a controlled and efficient manner.
+- A pointer or iterator that allows an application to retrieve and manipulate data from a collection of documents in a controlled and efficient manner.
 
 ### Automatic iteration
 
-Cursors automatically iterate by default, but you can also iterate them manually.
+- Cursors automatically iterate by default, but you can also iterate them manually.
 
 ### Batch fetching
 
-Cursors fetch documents in batches to reduce memory consumption and network bandwidth usage.
+- Cursors fetch documents in batches to reduce memory consumption and network bandwidth usage.
 
 ### Controlled access
 
-Cursors allow you to hold only a subset of database results in memory at a given time.
+- Cursors allow you to hold only a subset of database results in memory at a given time.
 
 ## Cursor Method
 
@@ -58,7 +58,7 @@ Cursors allow you to hold only a subset of database results in memory at a given
 
 # Logical Operators
 
-Logical operators return data based on expressions that evaluate to true or false.
+- Logical operators return data based on expressions that evaluate to true or false.
 
 ### $and operator
 
@@ -206,3 +206,32 @@ db.collection_name.find({"key":{$not:{$eq:"value"}}})
   ```
    db.users.find({}, { "age": 0 })
   ```
+
+## Embedded Documents
+
+- Query documents inside embedded documents using dot notation.
+
+  - Basic syntax `db.collection.find({ “parent.child”: value })`.
+  - Example : `db.users.find({"video.views": { $gt : 1200 } })`.
+
+### $all
+
+- The `$all` operator selects the documents where the value of a field is an array
+  that contains all the specified elements.
+
+  - basic syntax `{ <field>: { $all: [ <value1> , <value2> ] } }`
+
+    ```
+     db.videos.find({"comment.user" : { $all : [ "kunal" , "harsh" ] }})
+    ```
+
+### $elemMatch
+
+- The `$elemMatch` operator matches documents that contain an array field with
+  at least one element that matches all the specified query criteria.
+
+  - basic syntax `{ <field>: { $elemMatch: { <query1>, <query2> } } }`
+
+    ```
+    db.videos.find({"comment" : { $elemMatch : { "name": "kunal" , "text" : "hello" } }})
+    ```
