@@ -55,3 +55,45 @@ Cursors allow you to hold only a subset of database results in memory at a given
     ```
        db.collection_name.find({key:{$eq:value}}).limit(5).sort({key:-1})
     ```
+
+# Logical Operators
+
+Logical operators return data based on expressions that evaluate to true or false.
+
+### $and operator
+
+Return a data(documents) that match both expressions(conditions).
+
+```
+db.collection_name.find({$and:[{"key":{$eq:"value"}},{"key":"value"}]})
+```
+
+or
+
+```
+db.collection_name.find({"key":{$eq:"value"},"key":"value"})
+```
+
+### $or operator
+
+Return a data(documents) that match any one of the given expressions(conditions).
+
+```
+db.collection_name.find({$or:[{"key":{$eq:"value"}},{"key":"value"}]})
+```
+
+### $nor operator
+
+Return a data(documents) that does not match any one of the given expressions(conditions).
+
+```
+db.collection_name.find({$nor:[{"key":{$eq:"value"}},{"key":"value"}]})
+```
+
+### $not operator
+
+return a data(document) that is not match the expression(conditon).
+
+```
+db.collection_name.find({"key":{$not:{$eq:"value"}}})
+```
